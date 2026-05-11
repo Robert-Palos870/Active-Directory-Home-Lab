@@ -66,3 +66,15 @@ Following the mandatory reboot, I verified the success of the promotion by:
 1. **Login Credentials:** Confirmed the login screen now reflects the domain identity (`LAB\Administrator`).
 2. **Directory Services:** Verified the presence of the **Active Directory Users and Computers (ADUC)** console.
 3. **DNS Validation:** Confirmed that the `lab.local` zone was automatically created and populated with the DC's A-record.
+
+## 🤖 PowerShell Automation Phase
+To demonstrate efficiency and scalability, I utilized PowerShell to automate the creation of directory objects. This phase simulates how a System Administrator would manage large-scale user on-boarding.
+
+### 📜 Script Logic:
+* **Organizational Unit (OU) Creation:** Established a `Lab_Users` OU to provide a clean structure for managed accounts.
+* **Security Group Management:** Created the `Lab_Admins` group to practice the Principle of Least Privilege (PoLP).
+* **Automated Bulk Creation:** Implemented a `ForEach-Object` loop to generate five test users with standardized naming conventions and secure initial passwords.
+
+### 📊 Automation Result
+![Active Directory Users and Computers after script execution](./ADUC_Final_Automation.png)
+*Figure 2: The final directory state showing the Lab_Users OU populated with automated accounts and groups.*
