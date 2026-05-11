@@ -23,3 +23,17 @@ To ensure stability during the installation, the virtual environment was configu
 * **The RAM Trap:** Attempting to boot the Windows Server 2022 installer with 524 MB of RAM (as suggested in some guides) caused the boot loader to fail. Increasing the startup RAM to **2 GB** was the critical fix.
 * **Boot Priority:** Corrected a "No boot image found" error by manually adjusting the **SCSI Controller** settings to prioritize the DVD/ISO drive over the unallocated hard disk.
 * **Hyper-V "Press Any Key":** Identified that the 2-second boot window requires immediate focus on the VM window to initiate the OS installer.
+
+### 🔧 Detailed Hyper-V Configuration
+To replicate this environment, ensure the following settings are applied in Hyper-V Manager:
+
+* **Generation:** Generation 2 (supports UEFI and Secure Boot).
+* **Security:** * **Secure Boot:** Enabled (Standard Windows template). *Note: Temporarily disabled during initial ISO boot troubleshooting.*
+    * **TPM:** Enabled (Required for specific Windows Server security features).
+* **Processor:** 2 Virtual Processors (minimum recommended for Server 2022 GUI).
+* **Memory:** * Startup RAM: 2048 MB.
+    * Dynamic Memory: Disabled (to ensure consistent performance during AD DS promotion).
+* **Storage:** * Controller: SCSI Controller.
+    * Drive 0: 49GB VHDX (Dynamically expanding).
+    * Drive 1: DVD Drive (Mapped to Windows Server 2022 ISO).
+* **Networking:** Connected to `Default Switch` (provides NAT/Internet access for updates).
