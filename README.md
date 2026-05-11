@@ -4,7 +4,7 @@ A hands-on Active Directory lab environment built on Windows Server 2022 and Hyp
 ## 🚀 Progress Tracking
 - [x] Initial VM Creation & Hardware Configuration
 - [x] OS Installation (Windows Server 2022 Standard)
-- [ ] Server Renaming & Static IP Configuration
+- [x] Server Renaming & Static IP Configuration
 - [ ] Active Directory Domain Services (AD DS) Installation
 - [ ] Post-Promotion Domain Verification
 - [ ] PowerShell Automation Script Execution
@@ -37,3 +37,9 @@ To replicate this environment, ensure the following settings are applied in Hype
     * Drive 0: 49GB VHDX (Dynamically expanding).
     * Drive 1: DVD Drive (Mapped to Windows Server 2022 ISO).
 * **Networking:** Connected to `Default Switch` (provides NAT/Internet access for updates).
+
+## ⚙️ Post-Installation Configuration
+Before promoting the server to a Domain Controller, I performed the following "Identity" configurations to ensure network stability:
+
+* **Server Renaming:** Changed the default randomly generated hostname to **`DC01`**. This provides a standardized naming convention for the primary Domain Controller in the `lab.local` forest.
+* **Network Stability:** (In Progress) Preparing to transition from a DHCP-assigned address to a **Static IP**. This is a critical requirement for a Domain Controller to ensure DNS resolution remains consistent for all domain-joined clients.
