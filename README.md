@@ -7,7 +7,7 @@ A hands-on Active Directory lab environment built on Windows Server 2022 and Hyp
 - [x] Server Renaming & Static IP Configuration
 - [x] Active Directory Domain Services (AD DS) Installation
 - [x] Post-Promotion Domain Verification
-- [ ] PowerShell Automation Script Execution
+- [x] PowerShell Automation Script Execution
 
 ## 💻 System Specifications (Audited)
 To ensure stability during the installation, the virtual environment was configured as follows:
@@ -62,6 +62,8 @@ After preparing the server environment, I successfully promoted `DC01` to a Doma
 * **DNS Server:** Enabled (Integrated with AD DS for seamless name resolution).
 
 ### ✅ Post-Promotion Verification
+![Active Directory Initial State](./ADUC_Verification.png)
+*Figure 1: Verified lab.local domain structure in ADUC.*
 Following the mandatory reboot, I verified the success of the promotion by:
 1. **Login Credentials:** Confirmed the login screen now reflects the domain identity (`LAB\Administrator`).
 2. **Directory Services:** Verified the presence of the **Active Directory Users and Computers (ADUC)** console.
