@@ -62,12 +62,13 @@ After preparing the server environment, I successfully promoted `DC01` to a Doma
 * **DNS Server:** Enabled (Integrated with AD DS for seamless name resolution).
 
 ### ✅ Post-Promotion Verification
-![Active Directory Initial State](./ADUC_Verification.png)
-*Figure 1: Verified lab.local domain structure in ADUC.*
+
 Following the mandatory reboot, I verified the success of the promotion by:
 1. **Login Credentials:** Confirmed the login screen now reflects the domain identity (`LAB\Administrator`).
 2. **Directory Services:** Verified the presence of the **Active Directory Users and Computers (ADUC)** console.
 3. **DNS Validation:** Confirmed that the `lab.local` zone was automatically created and populated with the DC's A-record.
+![Active Directory Initial State](./ADUC_Verification.png)
+*Figure 1: Verified lab.local domain structure in ADUC.*
 
 ## 🤖 PowerShell Automation Phase
 To demonstrate efficiency and scalability, I utilized PowerShell to automate the creation of directory objects. This phase simulates how a System Administrator would manage large-scale user on-boarding.
