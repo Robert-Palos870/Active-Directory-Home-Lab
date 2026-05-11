@@ -6,7 +6,7 @@ A hands-on Active Directory lab environment built on Windows Server 2022 and Hyp
 - [x] OS Installation (Windows Server 2022 Standard)
 - [x] Server Renaming & Static IP Configuration
 - [x] Active Directory Domain Services (AD DS) Installation
-- [ ] Post-Promotion Domain Verification
+- [x] Post-Promotion Domain Verification
 - [ ] PowerShell Automation Script Execution
 
 ## 💻 System Specifications (Audited)
