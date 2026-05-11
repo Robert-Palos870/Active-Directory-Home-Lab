@@ -5,7 +5,7 @@ A hands-on Active Directory lab environment built on Windows Server 2022 and Hyp
 - [x] Initial VM Creation & Hardware Configuration
 - [x] OS Installation (Windows Server 2022 Standard)
 - [x] Server Renaming & Static IP Configuration
-- [ ] Active Directory Domain Services (AD DS) Installation
+- [x] Active Directory Domain Services (AD DS) Installation
 - [ ] Post-Promotion Domain Verification
 - [ ] PowerShell Automation Script Execution
 
@@ -49,3 +49,20 @@ Before promoting the server to a Domain Controller, I performed the following "I
     * **Subnet Mask:** `255.255.240.0`
     * **Default Gateway:** `172.20.112.1`
 * **DNS Strategy:** Configured the Preferred DNS to the loopback address (**127.0.0.1**). This ensures the server references its own AD database for name resolution once the AD DS role is active.
+
+## 🌳 Active Directory Domain Services (AD DS) Configuration
+After preparing the server environment, I successfully promoted `DC01` to a Domain Controller. This established the root of the forest and the primary identity management system for the lab.
+
+### 🛠️ Promotion Specifications
+* **Deployment Operation:** Add a new forest.
+* **Root Domain Name:** `lab.local`
+* **NetBIOS Name:** `LAB`
+* **Forest/Domain Functional Level:** Windows Server 2016 (Ensures compatibility while providing modern security features).
+* **Global Catalog:** Enabled (Primary server for the forest).
+* **DNS Server:** Enabled (Integrated with AD DS for seamless name resolution).
+
+### ✅ Post-Promotion Verification
+Following the mandatory reboot, I verified the success of the promotion by:
+1. **Login Credentials:** Confirmed the login screen now reflects the domain identity (`LAB\Administrator`).
+2. **Directory Services:** Verified the presence of the **Active Directory Users and Computers (ADUC)** console.
+3. **DNS Validation:** Confirmed that the `lab.local` zone was automatically created and populated with the DC's A-record.
