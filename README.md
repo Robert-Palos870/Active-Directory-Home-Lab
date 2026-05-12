@@ -110,17 +110,20 @@ The workstation was successfully renamed to **`WS01`** and joined to the forest,
 ![Welcome Message](./Domain_Join_Success.jpg)
 *Figure 4: Successful integration of WS01 into the lab.local managed environment.*
 
-### 🔑 Final Validation: Domain User Login
-To confirm the end-to-end functionality of the lab, I performed a login test using one of the automated accounts created in Phase 1:
-1.  **User:** `LAB\LabUser1`
-2.  **Verification:** Ran the `whoami` command in the terminal to confirm the workstation recognized the domain identity.
-3.  **Result:** Successfully authenticated against the Domain Controller, confirming that the GPOs and Directory Services are correctly exposed to the client.
+### ✅ Final Validation: Domain Identity Verification
+To confirm end-to-end functionality, I performed a login test using a non-administrative account provisioned during the automation phase.
 
-### 🔑 Final Validation: Domain Identity Verification
-The final test of the environment was to verify that a domain-level user could successfully authenticate and log in to the newly joined workstation. 
-
-*   **Authentication Test:** Logged out of the local 'Admin' account and successfully authenticated using the `LabUser1` credentials previously provisioned via PowerShell.
-*   **Identity Audit:** Executed the `whoami` command to confirm the active session was tied to the `lab.local` domain rather than the local machine database.
+* **Authentication Test:** Successfully logged out of the local 'Admin' account and authenticated as `LAB\LabUser1`.
+* **Identity Audit:** Executed `whoami` to verify the session was tied to the `lab.local` domain rather than the local workstation database.
+* **Result:** Confirmed that Directory Services and network authentication are fully operational across the environment.
 
 ![Domain User Verification](./Whoami_Verification.png)
 *Figure 5: Verification of successful domain login for LabUser1 on WS01.*
+
+---
+
+## 🛠️ Future Enhancements
+To further expand this lab's utility for cybersecurity and administration, the following phases are planned:
+* **Group Policy Enforcement:** Implementing GPOs to restrict Control Panel access and enforce password complexity.
+* **Security Auditing:** Configuring Windows Event Log monitoring to detect failed logon attempts (Brute Force simulation).
+* **Network Defense:** Deploying a virtual firewall to segment the Domain Controller from the workstation tier.
