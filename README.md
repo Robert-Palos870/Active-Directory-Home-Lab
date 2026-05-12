@@ -104,10 +104,10 @@ A primary challenge during this phase was a "Domain Controller Not Found" error 
 ### 🔗 Domain Integration & Verification
 The workstation was successfully renamed to **`WS01`** and joined to the forest, allowing for centralized management of the device and its users.
 
-![Domain Authentication](./Domain_Join_Auth.png)
+![Domain Authentication](./Domain_Join_Auth.jpg)
 *Figure 3: Authenticating with Domain Administrator credentials to authorize the workstation join.*
 
-![Welcome Message](./Domain_Join_Success.png)
+![Welcome Message](./Domain_Join_Success.jpg)
 *Figure 4: Successful integration of WS01 into the lab.local managed environment.*
 
 ### 🔑 Final Validation: Domain User Login
