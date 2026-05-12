@@ -81,3 +81,37 @@ To demonstrate efficiency and scalability, I utilized PowerShell to automate the
 ### 📊 Automation Result
 ![Active Directory Users and Computers after script execution](./ADUC_Final_Automation.png)
 *Figure 2: The final directory state showing the Lab_Users OU populated with automated accounts and groups.*
+
+## 🖥️ Phase 2: Client Workstation Integration
+To simulate a real-world corporate environment, I deployed a Windows 10 Enterprise workstation and successfully joined it to the `lab.local` domain. This phase demonstrates the practical application of central identity management and client-server networking.
+
+### 💻 Client Specifications (Workstation01)
+To maintain performance within the virtual environment, the workstation was configured as follows:
+
+| Component | Value (Workstation01) | Documentation Note |
+| :--- | :--- | :--- |
+| **Operating System** | Windows 10 Enterprise Eval | 22H2 (x64) Build |
+| **Memory (Startup)** | 2048 MB (2 GB) | Adjusted from 512 MB to prevent installer hangs |
+| **Storage** | 60 GB VHDX | Dynamically expanding (Thin Provisioning) |
+| **Networking** | Default Switch | Internal communication path to DC01 |
+
+### 🌐 Virtual Networking & DNS Troubleshooting
+A primary challenge during this phase was a "Domain Controller Not Found" error when attempting the initial join.
+*   **The Issue:** The workstation was unable to resolve the `lab.local` name via the default gateway.
+*   **The Fix:** Manually configured the workstation's IPv4 properties to point to the Domain Controller's static IP (`172.20.112.111`) as the Preferred DNS server.
+*   **Validation:** Verified connectivity using `ping lab.local`, ensuring a direct resolution path before re-attempting the join.
+
+### 🔗 Domain Integration & Verification
+The workstation was successfully renamed to **`WS01`** and joined to the forest, allowing for centralized management of the device and its users.
+
+![Domain Authentication](./Domain_Join_Auth.png)
+*Figure 3: Authenticating with Domain Administrator credentials to authorize the workstation join.*
+
+![Welcome Message](./Domain_Join_Success.png)
+*Figure 4: Successful integration of WS01 into the lab.local managed environment.*
+
+### 🔑 Final Validation: Domain User Login
+To confirm the end-to-end functionality of the lab, I performed a login test using one of the automated accounts created in Phase 1:
+1.  **User:** `LAB\LabUser1`
+2.  **Verification:** Ran the `whoami` command in the terminal to confirm the workstation recognized the domain identity.
+3.  **Result:** Successfully authenticated against the Domain Controller, confirming that the GPOs and Directory Services are correctly exposed to the client.
