@@ -92,7 +92,7 @@ To maintain performance within the virtual environment, the workstation was conf
 | :--- | :--- | :--- |
 | **Operating System** | Windows 10 Enterprise Eval | 22H2 (x64) Build |
 | **Memory (Startup)** | 2048 MB (2 GB) | Adjusted from 512 MB to prevent installer hangs |
-| **Storage** | 60 GB VHDX | Dynamically expanding (Thin Provisioning) |
+| **Storage** | 49 GB VHDX | Dynamically expanding (Thin Provisioning) |
 | **Networking** | Default Switch | Internal communication path to DC01 |
 
 ### 🌐 Virtual Networking & DNS Troubleshooting
